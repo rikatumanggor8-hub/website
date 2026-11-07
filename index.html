@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Curriculum Vitae Rika Tumanggor</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="bg-[#eef2f5] min-h-screen flex items-center justify-center p-4 font-sans">
+
+  <!-- ================= TAMPILAN 1: FORM LOGIN ================= -->
+  <div id="login-card" class="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden">
+    <!-- Header Login (Warna Merah) -->
+    <div class="bg-red-600 text-white p-6 text-center">
+      <h1 class="text-2xl font-bold mb-1">Login Mahasiswa</h1>
+      <p class="text-sm text-red-100">Masukkan data akun mahasiswa yang sesuai untuk membuka halaman Curriculum Vitae.</p>
+    </div>
+
+    <!-- Form Login -->
+    <form onsubmit="prosesLogin(event)" class="p-6 space-y-4">
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">NIM</label>
+        <input type="text" id="inputNim" required value="2024140045" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none text-gray-700"/>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">Password</label>
+        <div class="relative">
+          <input type="password" id="inputPassword" required value="Rika27" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none text-gray-700 pr-10"/>
+          <button type="button" onclick="togglePassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+            <i id="eyeIcon" class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">Jenjang pendidikan</label>
+        <select id="inputJenjang" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none text-gray-700 bg-white">
+          <option value="" disabled>Pilih jenjang pendidikan</option>
+          <option value="D3 - Diploma 3">D3 - Diploma 3</option>
+          <option value="D4 - Sarjana Terapan" selected>D4 - Sarjana Terapan</option>
+          <option value="S1 - Sarjana">S1 - Sarjana</option>
+          <option value="S2 - Magister">S2 - Magister</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full bg-[#1e293b] hover:bg-[#0f172a] text-white font-medium py-3 rounded-lg transition duration-200 mt-2">
+        Login
+      </button>
+
+      <div class="border-t pt-4 mt-4 text-xs text-gray-500 space-y-1">
+        <p>NIM : 2024140045</p>
+        <p>Password : Rika27</p>
+        <p>Jenjang Pendidikan : D4 - Sarjana Terapan</p>
+      </div>
+    </form>
+  </div>
+
+  <!-- ================= TAMPILAN 2: CURRICULUM VITAE ================= -->
+  <div id="cv-card" class="hidden w-full max-w-4xl bg-white rounded-xl shadow-xl overflow-hidden my-6">
+    <div class="bg-gray-100 px-6 py-3 flex justify-end border-b">
+      <button onclick="prosesLogout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-1.5 rounded-lg text-sm transition flex items-center gap-2">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12">
+      <div class="md:col-span-4 bg-[#1e2229] text-white p-6 flex flex-col items-center text-center md:text-left">
+        
+        <!-- FOTO PROFIL ASLI RIKA TUMANGGOR (TERSEMAT UTUH DALAM FORMAT BASE64) -->
+        <img 
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhMSEhIWFRUVFRUVFRUXFRYVFRUVFRUWFhUVFRUYHSggGBolGxUVITEhJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGy0mICUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4AMBEQACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAAIDBAYHAQj/xAA/EAABAwIEAwYEAwYGAwEBAAABAAIDBBEFEiExBkETUWFxByIjMoGRM0JSoQgjYrHBJDRy0eHwM2OC8RUW/CWD/8QAGQEAAwEBAQAAAAAAAAAAAAAAAAECAwQF/8QAJBEBAQACAgIDAAIDAQAAAAAAAAECESESMQMTQVEiEyJhcfB-=" 
+          onerror="this.onerror=null; this.src='rename.jpeg';"
+          alt="Foto Rika Tumanggor" 
+          class="w-32 h-32 rounded-full border-4 border-amber-400 object-cover mb-6 shadow-lg"
+        />
+
+        <div class="w-full bg-[#e2be72] text-gray-900 font-bold px-4 py-1.5 rounded mb-4 text-center shadow text-sm">
+          DATA DIRI
+        </div>
+
+        <div class="w-full space-y-3 text-xs text-gray-300 mb-6">
+          <div>
+            <span class="block font-semibold text-gray-400">NIM</span>
+            <span id="tampilNim" class="text-white font-semibold text-sm">2024140045</span>
+          </div>
+          <div>
+            <span class="block font-semibold text-gray-400">Tempat / Tanggal Lahir</span>
+            <p class="text-white font-medium">Tumba, 27 November 2005</p>
+          </div>
+          <div>
+            <span class="block font-semibold text-gray-400">Jenis Kelamin</span>
+            <p class="text-white font-medium">Perempuan</p>
+          </div>
+          <div>
+            <span class="block font-semibold text-gray-400">Status</span>
+            <p class="text-white font-medium">Mahasiswa</p>
+          </div>
+          <div>
+            <span class="block font-semibold text-gray-400">Kewarganegaraan</span>
+            <p class="text-white font-medium">Indonesia</p>
+          </div>
+        </div>
+
+        <div class="w-full bg-[#e2be72] text-gray-900 font-bold px-4 py-1.5 rounded mb-3 text-center shadow text-sm">
+          KONTAK
+        </div>
+        <div class="w-full space-y-2.5 text-xs text-gray-300 text-left">
+          <p><i class="fa-solid fa-phone w-5 text-amber-400"></i> 081361733363</p>
+          <p><i class="fa-solid fa-envelope w-5 text-amber-400"></i> rikatumanggor8@gmail.com</p>
+          <p><i class="fa-solid fa-at w-5 text-amber-400"></i> rikatmgr</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-8 p-8 bg-white flex flex-col justify-between">
+        <div class="space-y-6">
+          <div class="border-b pb-4">
+            <h2 class="text-3xl font-extrabold text-gray-900 tracking-wide uppercase">Rika Tumanggor</h2>
+            <p class="text-gray-600 font-medium italic mt-1">Mahasiswa D4 Sistem Informasi Bisnis - AMIK Universal Medan</p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-2">TENTANG SAYA</h3>
+            <p class="text-gray-700 text-sm leading-relaxed text-justify">
+              Saya adalah seorang mahasiswa aktif semester 5 di AMIK Universal Medan yang mengambil program studi D4 Sistem Informasi Bisnis. Saya memiliki minat yang besar di bidang teknologi informasi dan antusias untuk terus belajar mengembangkan diri di dunia pemrograman. Selama berkuliah, saya aktif mengerjakan berbagai tugas dan proyek pembuatan website sederhana, serta terbiasa bekerja secara mandiri maupun dalam tim perkuliahan.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3">RIWAYAT PENDIDIKAN</h3>
+            <ul class="space-y-3 text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-graduation-cap text-blue-600 mt-1"></i>
+                <div>
+                  <span class="font-semibold block">D4 Sistem Informasi Bisnis</span>
+                  <span class="text-xs text-gray-500">AMIK Universal Medan (Semester 5)</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-school text-blue-600 mt-1"></i>
+                <div>
+                  <span class="font-semibold block">SMA Negeri 1 Pandan</span>
+                  <span class="text-xs text-gray-500">Sekolah Menengah Atas</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-school text-blue-600 mt-1"></i>
+                <div>
+                  <span class="font-semibold block">SMP Negeri 1 Manduamas</span>
+                  <span class="text-xs text-gray-500">Sekolah Menengah Pertama</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-school text-blue-600 mt-1"></i>
+                <div>
+                  <span class="font-semibold block">SD Negeri 153045 Tumba Julu</span>
+                  <span class="text-xs text-gray-500">Sekolah Dasar</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-xs text-gray-400 border-t pt-4 mt-6 text-right">
+          Curriculum Vitae - Rika Tumanggor
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById('inputPassword');
+      const eyeIcon = document.getElementById('eyeIcon');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+
+    function prosesLogin(event) {
+      event.preventDefault();
+      const nim = document.getElementById('inputNim').value;
+      document.getElementById('tampilNim').innerText = nim;
+      document.getElementById('login-card').classList.add('hidden');
+      document.getElementById('cv-card').classList.remove('hidden');
+    }
+
+    function prosesLogout() {
+      document.getElementById('cv-card').classList.add('hidden');
+      document.getElementById('login-card').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
